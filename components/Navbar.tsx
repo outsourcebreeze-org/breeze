@@ -40,7 +40,6 @@ export default async function Navbar() {
           <img
           src={logo_outsourcebreeze.src}
           alt="logo_outsourcebreeze"
-          className="rounded-lg object-cover w-full md:w-3/4 lg:w-1/2 mx-auto"
         />
         </Link>
       </div>
