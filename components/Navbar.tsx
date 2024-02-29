@@ -54,7 +54,7 @@ export default async function Navbar() {
       <div className="flex gap-4 lg:ml-auto">
         {!user && (
           <Link href="/login">
-            <Button variant={"ghost"}>Login / Signup</Button>
+            <Button variant={"ghost"}> Login / Signup</Button>
           </Link>
           )}
         {user && (
