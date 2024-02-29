@@ -56,7 +56,7 @@ export default async function Navbar() {
           <Link href="/login">
             <Button variant={"ghost"}>Login / Signup</Button>
           </Link>
-        )}
+          )}
         {user && (
           <div className="flex flex-row gap-4 text-center align-middle justify-center">
             {stripeIsConfigured && (
