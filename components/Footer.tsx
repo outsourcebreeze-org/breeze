@@ -4,52 +4,20 @@ export default function Footer() {
   return (
     <footer className="text-center px-4 lg:px-40 py-4 h-12 sm:h-20 w-full sm:pt-2 pt-4 border-t mt-5 flex sm:flex-row flex-col justify-between items-center space-y-3 sm:mb-0 mb-3 border-gray-200">
       <div className="text-gray-500">
-        <Link
-          className="text-blue-600 hover:underline font-bold"
-          href="https://github.com/leap-ai/headshots-starter"
-          target="_blank"
-        >
-          Open-source
-        </Link>{" "}
         powered by{" "}
         <Link
           className="text-blue-600 hover:underline font-bold"
-          href="https://tryleap.ai/"
+          href="https://outsourcebreeze.com/"
           target="_blank"
         >
-          Leap AI,{" "}
+          OUTSOURCEBREEZE INC,{" "}
         </Link>
-        <Link
-          className="text-blue-600 hover:underline font-bold"
-          href="https://supabase.com/"
-          target="_blank"
-        >
-          Supabase,{" "}
-        </Link>
-        and{" "}
-        {process.env.DEPLOYMENT_PROVIDER === "replit" ? (
-          <Link
-            className="text-blue-600 hover:underline font-bold"
-            href="https://replit.com/@leap-ai/Headshot-AI-Professional-Headshots-with-Leap-AI"
-            target="_blank"
-          >
-            Replit{" "}
-          </Link>
-        ) : (
-          <Link
-            className="text-blue-600 hover:underline font-bold"
-            href="https://vercel.com/"
-            target="_blank"
-          >
-            Vercel.
-          </Link>
-        )}
       </div>
       <div className="flex space-x-4 pb-4 sm:pb-0">
         <Link
-          href="https://twitter.com/leap_api"
+          href="#"
           className="group"
-          aria-label="Twitter"
+          aria-label="Facebook"
           target="_blank"
         >
           <svg
@@ -60,9 +28,9 @@ export default function Footer() {
           </svg>
         </Link>
         <Link
-          href="https://github.com/leap-ai/headshots-starter"
+          href="#"
           className="group"
-          aria-label="GitHub"
+          aria-label="LinkedIn"
           target="_blank"
         >
           <svg

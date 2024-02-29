@@ -14,6 +14,7 @@ import { Button } from "./ui/button";
 import React from "react";
 import { Database } from "@/types/supabase";
 import ClientSideCredits from "./realtime/ClientSideCredits";
+import logo_outsourcebreeze from "/public/logo_outsourcebreeze.png";
 
 export const dynamic = "force-dynamic";
 
@@ -36,7 +37,11 @@ export default async function Navbar() {
     <div className="flex w-full px-4 lg:px-40 py-4 items-center border-b text-center gap-8 justify-between">
       <div className="flex gap-2 h-full">
         <Link href="/">
-          <h2 className="font-bold"> OUTSOURCEBREEZE AI</h2>
+          <img
+          src={logo_outsourcebreeze.src}
+          alt="logo_outsourcebreeze"
+          className="rounded-lg object-cover w-full md:w-3/4 lg:w-1/2 mx-auto"
+        />
         </Link>
       </div>
       {user && (
