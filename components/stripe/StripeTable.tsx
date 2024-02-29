@@ -42,11 +42,11 @@ const StripePricingTable = ({ user }: Props) => {
         >
       </stripe-pricing-table>
       <stripe-pricing-table pricing-table-id="prctbl_1OpETxEWwwv9dG4ht7dk4qLc"
-publishable-key="pk_test_51OpD8JEWwwv9dG4hxb9LX83MUB4XT2Grii4YRkmh8LP9Du9A3LTLT2voiciGkOIAO6XzA9inTBF90dFxb8HTZPyw00ID6zaDkl">
+      publishable-key="pk_test_51OpD8JEWwwv9dG4hxb9LX83MUB4XT2Grii4YRkmh8LP9Du9A3LTLT2voiciGkOIAO6XzA9inTBF90dFxb8HTZPyw00ID6zaDkl">
+            </stripe-pricing-table>
+            <stripe-pricing-table pricing-table-id="prctbl_1OpEWrEWwwv9dG4hdIUbaU9l"
+      publishable-key="pk_test_51OpD8JEWwwv9dG4hxb9LX83MUB4XT2Grii4YRkmh8LP9Du9A3LTLT2voiciGkOIAO6XzA9inTBF90dFxb8HTZPyw00ID6zaDkl">
       </stripe-pricing-table>
-      <stripe-pricing-table pricing-table-id="prctbl_1OpEWrEWwwv9dG4hdIUbaU9l"
-publishable-key="pk_test_51OpD8JEWwwv9dG4hxb9LX83MUB4XT2Grii4YRkmh8LP9Du9A3LTLT2voiciGkOIAO6XzA9inTBF90dFxb8HTZPyw00ID6zaDkl">
-</stripe-pricing-table>
     </div>
   );
 }
