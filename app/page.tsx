@@ -31,7 +31,8 @@ export default async function Index() {
           </h1>
           <p className="text-gray-600 text-lg">
             Are you tired of the same old boring learning methods that just don't seem to cut it anymore?
-            Are you looking for a revolutionary way to take your education and skills development to the next level? Look no further than OutsourceBreeze.
+            Are you looking for a revolutionary way to take your education and skills development to the
+            next level? Look no further than OutsourceBreeze.
           </p>
           <div className="flex flex-col space-y-2">
             <Link href="/login">
