@@ -24,14 +24,14 @@ export default async function Index() {
           </Button>
         </Link>
         <Card>
-          <CardHeader>
+          {/* <CardHeader>
             <CardTitle>Train Model</CardTitle>
             <CardDescription>
               Choose a name, type, and upload some photos to get started.
             </CardDescription>
-          </CardHeader>
+          </CardHeader> */}
           <CardContent className="grid gap-6">
-            <TrainModelZone />
+            {/* <TrainModelZone /> */}
           </CardContent>
         </Card>
       </div>
