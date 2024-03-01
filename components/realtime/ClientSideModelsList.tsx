@@ -15,7 +15,7 @@ type ClientSideModelsListProps = {
   serverModels: modelRowWithSamples[] | [];
 };
 
-export default async function ClientSideModelsList({
+export default function ClientSideModelsList({
   serverModels,
 }: ClientSideModelsListProps) {
   const supabase = createClient<Database>(
@@ -24,9 +24,9 @@ export default async function ClientSideModelsList({
   );
   const [models, setModels] = useState<modelRowWithSamples[]>(serverModels);
 
-   const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  // const {
+  //   data: { user },
+  // } = await supabase.auth.getUser();
   useEffect(() => {
     const channel = supabase
       .channel("realtime-models")
@@ -77,9 +77,9 @@ export default async function ClientSideModelsList({
       {/* {models && models.length === 0 && ( */}
         <div className="flex flex-col gap-4 items-center">
           <FaImages size={64} className="text-gray-500" />
-        {user && (<h1 className="text-2xl">
-          Welcome {user.email}
-        </h1>)}
+        <h1 className="text-2xl">
+          Appreciate your excursion with Breeze
+        </h1>
           <div>
             <Link href="/overview/models/train">
               <Button size={"lg"}>Get started</Button>

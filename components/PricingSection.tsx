@@ -48,30 +48,30 @@ const pricingOptions = [
     title: "Starter",
     price: "1 Credit",
     description:
-      "Perfect for individuals looking to enhance their online presence.",
+      "Getting to know Breeze and its various basic functionalities.",
     features: [
-      "4 AI Headshots",
+      "1 month acccess",
     ],
     buttonText: "Choose Starter",
     bgColor: "bg-white",
   },
   {
     title: "Basic",
-    price: "3 Credits",
+    price: "2 Credits",
     description:
-      "Ideal for professionals requiring frequent updates to their profiles.",
+      "Advancing to know Breeze and its various functionalities.",
     features: [
-      "12 AI Headshots",
+      "2 months access",
     ],
     buttonText: "Choose Basic",
     bgColor: "bg-blue-50",
   },
   {
     title: "Premium",
-    price: "5 Credits",
-    description: "The best value with unlimited possibilities.",
+    price: "3 Credits",
+    description: "Enjoy Breeze like a pro.",
     features: [
-      "20 AI Headshots",
+      "3 months access",
     ],
     buttonText: "Choose Premium",
     bgColor: "bg-white",
