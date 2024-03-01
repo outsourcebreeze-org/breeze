@@ -18,7 +18,7 @@ import logo_outsourcebreeze from "/public/logo_outsourcebreeze.png";
 
 export const dynamic = "force-dynamic";
 
-const stripeIsConfigured = process.env.NEXT_PUBLIC_STRIPE_IS_ENABLED === "true";
+const stripeIsConfigured = true; //process.env.NEXT_PUBLIC_STRIPE_IS_ENABLED === "true";
 
 export const revalidate = 0;
 
