@@ -48,24 +48,23 @@ export default async function Navbar() {
           <Link href="/overview">
             <Button variant={"ghost"}>Home</Button>
           </Link>
-          (
-            <Link href="/get-credits">
+          {stripeIsConfigured && 
+            (<Link href="/get-credits">
               <Button variant={"ghost"}>Get Credits</Button>
-            </Link>
-          )
+            </Link>)
+          }
         </div>
       )}
       <div className="flex gap-4 lg:ml-auto">
-        {!user && (
-          <Link href="/login">
+        {!user && 
+          (<Link href="/login">
             <Button variant={"ghost"}> Login / Signup</Button>
-          </Link>
-          )}
+          </Link>)}
         {user && (
           <div className="flex flex-row gap-4 text-center align-middle justify-center">
-            (
+            {stripeIsConfigured && (
               <ClientSideCredits creditsRow={credits ? credits : null} />
-            )
+            )}
             <DropdownMenu>
               <DropdownMenuTrigger asChild className="cursor-pointer">
                 <AvatarIcon height={24} width={24} className="text-primary" />
