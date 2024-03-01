@@ -1,3 +1,8 @@
+// VideoComponent.tsx
+
+// The first line should be "use client" to mark this component as a Client Component.
+"use client";
+
 // Import necessary libraries
 import React, { useState, useEffect, useRef } from 'react';
 
@@ -8,10 +13,9 @@ interface VideoComponentProps {
 
 const VideoComponent: React.FC<VideoComponentProps> = ({ apiKey }) => {
   const videoEl = useRef<HTMLVideoElement>(null);
-  const [scene, setScene] = useState<any>(null); // Consider defining a more specific type for `scene`
+  const [scene, setScene] = useState<any>(null);
   const [connectionError, setConnectionError] = useState<string>('');
 
-  // Effect to handle the video start on successful connection
   useEffect(() => {
     if (scene) {
       scene.startVideo().then((videoState: any) => {
@@ -22,12 +26,10 @@ const VideoComponent: React.FC<VideoComponentProps> = ({ apiKey }) => {
     }
   }, [scene]);
 
-  // Function to handle connection
   const connect = async () => {
     if (!videoEl.current) return;
 
     try {
-      // Assuming `Scene` is a global type or imported; you need to define or import it accordingly
       const newScene: any = new (window as any).Scene({
         apiKey,
         videoElement: videoEl.current,
