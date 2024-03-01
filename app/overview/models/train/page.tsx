@@ -24,7 +24,7 @@ export default async function Index() {
             Go Back
           </Button>
         </Link>
-        <VideoComponent apiKey={process.env.NEXT_PUBLIC_SCENE_API_KEY || ''} />
+        <VideoComponent apiKey='eyJzb3VsSWQiOiJkZG5hLW91dHNvdXJjZWJyZWV6ZWI2ZGQtLXRlc3RhcGkiLCJhdXRoU2VydmVyIjoiaHR0cHM6Ly9kaC5hei5zb3VsbWFjaGluZXMuY2xvdWQvYXBpL2p3dCIsImF1dGhUb2tlbiI6ImFwaWtleV92MV9iMGYzNGJiNS1kYmUyLTRhYjktYjBhMC0wMzIzZWI1MDg3OWIifQ==' />
       </div>
     </div>
   );
