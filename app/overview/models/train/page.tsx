@@ -1,4 +1,5 @@
 import TrainModelZone from "@/components/TrainModelZone";
+import VideoComponent from "@/components/ui/VideoComponent";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -23,17 +24,7 @@ export default async function Index() {
             Go Back
           </Button>
         </Link>
-        <Card>
-          {/* <CardHeader>
-            <CardTitle>Train Model</CardTitle>
-            <CardDescription>
-              Choose a name, type, and upload some photos to get started.
-            </CardDescription>
-          </CardHeader> */}
-          <CardContent className="grid gap-6">
-            {/* <TrainModelZone /> */}
-          </CardContent>
-        </Card>
+        <VideoComponent apiKey={process.env.NEXT_PUBLIC_SCENE_API_KEY || ''} />
       </div>
     </div>
   );
