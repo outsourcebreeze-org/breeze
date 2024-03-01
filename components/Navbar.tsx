@@ -18,7 +18,7 @@ import logo_outsourcebreeze from "/public/logo_outsourcebreeze.png";
 
 export const dynamic = "force-dynamic";
 
-const stripeIsConfigured = true; //process.env.NEXT_PUBLIC_STRIPE_IS_ENABLED === "true";
+const stripeIsConfigured = process.env.NEXT_PUBLIC_STRIPE_IS_ENABLED === "true";
 
 export const revalidate = 0;
 
@@ -48,11 +48,11 @@ export default async function Navbar() {
           <Link href="/overview">
             <Button variant={"ghost"}>Home</Button>
           </Link>
-          {stripeIsConfigured && (
+          (
             <Link href="/get-credits">
               <Button variant={"ghost"}>Get Credits</Button>
             </Link>
-          )}
+          )
         </div>
       )}
       <div className="flex gap-4 lg:ml-auto">
@@ -63,9 +63,9 @@ export default async function Navbar() {
           )}
         {user && (
           <div className="flex flex-row gap-4 text-center align-middle justify-center">
-            {stripeIsConfigured && (
+            (
               <ClientSideCredits creditsRow={credits ? credits : null} />
-            )}
+            )
             <DropdownMenu>
               <DropdownMenuTrigger asChild className="cursor-pointer">
                 <AvatarIcon height={24} width={24} className="text-primary" />
