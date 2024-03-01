@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useRef, useEffect } from 'react';
 // Importez Scene depuis le SDK
 import { Scene } from '@soulmachines/smwebsdk';
