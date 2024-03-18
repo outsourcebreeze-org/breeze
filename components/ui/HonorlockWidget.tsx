@@ -26,7 +26,7 @@ const HonorlockWidget: React.FC<HonorlockWidgetProps> = ({
 }) => {
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = "js/main.js";
+    script.src = "/js/main.js";
     script.type = "module";
     script.onload = () => {
       document.addEventListener('HonorlockElements', () => {
@@ -44,10 +44,10 @@ const HonorlockWidget: React.FC<HonorlockWidgetProps> = ({
         }
       });
     };
-    document.head.appendChild(script);
+    document.body.appendChild(script);
 
     return () => {
-      document.head.removeChild(script);
+      document.body.removeChild(script);
     };
   }, [token, contextType, contextId, width, height]);
 
