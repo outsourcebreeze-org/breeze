@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 
 
 export const dynamic = "force-dynamic";
-import HonorlockComponent from '@/components/ui/HonorlockComponent';
+import HonorlockComponent from "../../components/ui/HonorlockComponent";
 
 export default async function Index() {
    const supabase = createServerComponentClient({ cookies });
