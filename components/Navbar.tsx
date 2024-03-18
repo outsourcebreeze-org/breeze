@@ -53,6 +53,9 @@ export default async function Navbar() {
               <Button variant={"ghost"}>Get Credits</Button>
             </Link>
           {/* )} */}
+          <Link href="/exams">
+              <Button variant={"ghost"}>Exams</Button>
+            </Link>
         </div>
       )}
       <div className="flex gap-4 lg:ml-auto">
