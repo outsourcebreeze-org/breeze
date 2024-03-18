@@ -44,10 +44,10 @@ const HonorlockWidget: React.FC<HonorlockWidgetProps> = ({
         }
       });
     };
-    document.body.appendChild(script);
+    document.head.appendChild(script);
 
     return () => {
-      document.body.removeChild(script);
+      document.head.removeChild(script);
     };
   }, [token, contextType, contextId, width, height]);
 
