@@ -32,9 +32,9 @@ useEffect(() => {
     document.removeEventListener('HonorlockElements', initHonorlock);
   };
 }, [token, contextType, contextId]);
-
-
-  return <honorlock-elements></honorlock-elements>;
+return (
+    <div dangerouslySetInnerHTML={{ __html: '<honorlock-elements></honorlock-elements>' }} />
+  );
 };
 
 export default HonorlockComponent;
