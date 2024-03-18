@@ -38,8 +38,6 @@ const HonorlockWidget: React.FC<HonorlockWidgetProps> = ({
               type: contextType,
               id: contextId,
             },
-            width,
-            height,
           });
         }
       });
