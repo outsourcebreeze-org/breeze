@@ -44,6 +44,7 @@ const HonorlockWidget: React.FC<HonorlockWidgetProps> = ({
         }
       });
     };
+    console.log(token + " " + contextType + " " + contextId + " " + width + " " + height)
     document.body.appendChild(script);
 
     return () => {
