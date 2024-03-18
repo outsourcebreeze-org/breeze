@@ -11,27 +11,28 @@ interface HonorlockComponentProps {
 }
 
 const HonorlockComponent: React.FC<HonorlockComponentProps> = ({ token, contextType, contextId }) => {
-  useEffect(() => {
-    const initHonorlock = () => {
-      if (typeof window !== 'undefined' && window.HonorlockElements) {
-        window.HonorlockElements.init({
-          token,
-          debug: true,
-          context: {
-            type: contextType,
-            id: contextId,
-          },
-        });
-      }
-    };
+useEffect(() => {
+  const initHonorlock = () => {
+    if (typeof window !== 'undefined' && (window as any).HonorlockElements) {
+      (window as any).HonorlockElements.init({
+        token,
+        debug: true,
+        context: {
+          type: 'course',
+          id: '<course-uuid>',
+        },
+      });
+    }
+  };
 
-    document.addEventListener('HonorlockElements', initHonorlock);
+  document.addEventListener('HonorlockElements', initHonorlock);
 
-    // Cleanup
-    return () => {
-      document.removeEventListener('HonorlockElements', initHonorlock);
-    };
-  }, [token, contextType, contextId]);
+  // Cleanup
+  return () => {
+    document.removeEventListener('HonorlockElements', initHonorlock);
+  };
+}, [token, contextType, contextId]);
+
 
   return <honorlock-elements></honorlock-elements>;
 };
