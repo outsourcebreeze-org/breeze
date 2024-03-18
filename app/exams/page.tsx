@@ -27,6 +27,7 @@ export default async function Index() {
       <HonorlockWidget
         token={token}
         contextType={contextType}
+        
         contextId={contextId}
       />
     </div>
