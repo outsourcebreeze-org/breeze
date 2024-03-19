@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 import HonorlockComponent from '../../components/HonorlockComponent';
 
 export default async function Index() {
-   const supabase = createServerComponentClient({ cookies });
+   const  supabase = createServerComponentClient({ cookies });
   
     const {
     data: { user },
