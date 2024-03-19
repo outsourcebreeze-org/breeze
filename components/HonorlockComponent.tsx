@@ -32,7 +32,9 @@ const HonorlockComponent: React.FC = () => {
 
   return (
     <div>
+      <div>Test</div>
       <honorlock-elements></honorlock-elements>
+      <div>Test</div>
     </div>
   );
 };
