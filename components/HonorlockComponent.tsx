@@ -1,3 +1,4 @@
+"use client";
 // components/HonorlockComponent.tsx
 import React, { useEffect } from 'react';
 
