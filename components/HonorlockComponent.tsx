@@ -2,6 +2,7 @@
 "use client";
 // pages/HonorlockComponent.tsx ou components/HonorlockComponent.tsx
 import React, { useEffect } from 'react';
+import '@honorlock/elements';
 
 // declare global {
 //   interface Window {
@@ -14,7 +15,7 @@ const HonorlockComponent: React.FC = () => {
     // S'assure que le code s'exécute côté client
    // if (typeof window !== "undefined") {
       // Charge dynamiquement @honorlock/elements
-      import('@honorlock/elements').then(() => {
+
         // Initialisation de Honorlock
          console.log('Honorlock initialisé');
         document.addEventListener('HonorlockElements', () => {
@@ -36,7 +37,6 @@ const HonorlockComponent: React.FC = () => {
         );
 
          console.log('Honorlock initialisé');
-      }).catch(err => console.error("Erreur lors du chargement de @honorlock/elements:", err));
    // }
   }, []);
 
