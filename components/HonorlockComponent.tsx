@@ -1,11 +1,16 @@
 "use client";
 import React, { useEffect, useState } from 'react';
-import '@honorlock/elements';
+import '@honorlock/elements'; // Assurez-vous que cela ne cause pas d'erreurs lors du rendu côté serveur
 
-// Déclare un type global pour augmenter le type Window avec HonorlockElements, si nécessaire.
 declare global {
   interface Window {
-    HonorlockElements: HonorlockElements;
+    HonorlockElements: {
+      init: (config: {
+        token: string;
+        debug: boolean;
+        context: { type: string; id: string };
+      }) => void;
+    };
   }
 }
 
@@ -13,30 +18,22 @@ const HonorlockComponent: React.FC = () => {
   const [token, setToken] = useState('');
   const [contextType, setContextType] = useState('');
   const [contextId, setContextId] = useState('');
+  const [initialized, setInitialized] = useState(false);
 
-  // Écoutez l'événement 'HonorlockElements' pour initialiser HonorlockElements
   useEffect(() => {
-    const initHonorlock = () => {
-      if (window.HonorlockElements) {
-        window.HonorlockElements.init({
-          token,
-          debug: true,
-          context: {
-            type: contextType,
-            id: contextId,
-          },
-        });
-        console.log('Honorlock initialisé');
-      }
-    };
-
-    document.addEventListener('HonorlockElements', initHonorlock);
-
-    // Nettoyez l'événement lorsque le composant est démonté
-    return () => {
-      document.removeEventListener('HonorlockElements', initHonorlock);
-    };
-  }, [token, contextType, contextId]);
+    if (typeof window !== 'undefined' && window.HonorlockElements && token && contextType && contextId && !initialized) {
+      window.HonorlockElements.init({
+        token,
+        debug: true,
+        context: {
+          type: contextType,
+          id: contextId,
+        },
+      });
+      console.log('Honorlock initialized');
+      setInitialized(true);
+    }
+  }, [token, contextType, contextId, initialized]);
 
   return (
     <div>
@@ -58,8 +55,7 @@ const HonorlockComponent: React.FC = () => {
         value={contextId}
         onChange={(e) => setContextId(e.target.value)}
       />
-      <honorlock-elements style={{ width: '100%', height: '500px' }}></honorlock-elements>
-      
+      {typeof window !== 'undefined' && <honorlock-elements />}
     </div>
   );
 };
