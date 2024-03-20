@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from 'react';
 import '@honorlock/elements';
 
@@ -58,6 +59,7 @@ const HonorlockComponent: React.FC = () => {
         onChange={(e) => setContextId(e.target.value)}
       />
       <honorlock-elements style={{ width: '100%', height: '500px' }}></honorlock-elements>
+      
     </div>
   );
 };
