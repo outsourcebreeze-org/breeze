@@ -1,47 +1,47 @@
-"use client";
 // components/HonorlockComponent.tsx
+"use client";
 import React, { useEffect } from 'react';
-
-declare global {
-  interface Window {
-    HonorlockElements: HonorlockElements;
-  }
-}
 
 const HonorlockComponent: React.FC = () => {
   useEffect(() => {
-    // S'assure que le code s'exécute uniquement côté client
-    if (typeof window !== "undefined") {
-      // Charge Honorlock si disponible
-      const honorlockScript = document.createElement("script");
-      honorlockScript.src = "/path/to/honorlock/elements/script.js"; // Remplacez par le chemin correct vers honorlock elements si nécessaire
-      honorlockScript.async = true;
-      honorlockScript.onload = () => {
-        document.addEventListener('HonorlockElements', () => {
-          if (window.HonorlockElements) {
-            window.HonorlockElements.init({
+    // Vérifie si le script de Honorlock a déjà été ajouté
+    const scriptId = 'honorlock-script';
+    if (document.getElementById(scriptId)) {
+      console.log("Script Honorlock déjà ajouté.");
+      return;
+    }
+
+    // Crée et ajoute le script de Honorlock à la page
+    const script = document.createElement('script');
+    script.id = scriptId;
+    script.type = 'module';
+    script.innerHTML = `
+      import '@honorlock/elements';
+      document.addEventListener('HonorlockElements', () => {
+          window.HonorlockElements.init({
               token: 'votre-token',
               debug: true,
               context: {
-                type: 'votre-type-de-contexte',
-                id: 'votre-id-de-contexte',
+                  type: 'course',
+                  id: '38a47339-d8ac-4fe6-8cf1-4404797af444',
               },
-            });
-            console.log('Honorlock initialisé');
-          }
-        });
-      };
-      document.body.appendChild(honorlockScript);
-    }
+          });
+      });
+    `;
+    document.body.appendChild(script);
+
+    return () => {
+      // Nettoie le script lors du démontage du composant
+      script && document.body.removeChild(script);
+    };
   }, []);
 
   return (
     <div>
-      <h1>Intégration d'Honorlock</h1>
+      <p>This is a test page for Honorlock.</p>
       <honorlock-elements></honorlock-elements>
     </div>
   );
 };
 
 export default HonorlockComponent;
-
