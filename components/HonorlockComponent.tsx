@@ -23,6 +23,7 @@ const HonorlockComponent: React.FC = () => {
                 id: '38a47339-d8ac-4fe6-8cf1-4404797af444', // exemple : '12345'
               },
             });
+             
             console.log('Honorlock initialisé');
           }
         });
