@@ -1,7 +1,7 @@
-"use client";
 import React, { useEffect, useState } from 'react';
+import '@honorlock/elements';
 
-// Déclare un type global si @honorlock/elements n'a pas de types TypeScript
+// Déclare un type global pour augmenter le type Window avec HonorlockElements, si nécessaire.
 declare global {
   interface Window {
     HonorlockElements: HonorlockElements;
@@ -12,49 +12,30 @@ const HonorlockComponent: React.FC = () => {
   const [token, setToken] = useState('');
   const [contextType, setContextType] = useState('');
   const [contextId, setContextId] = useState('');
-  const [isClient, setIsClient] = useState(false);
 
+  // Écoutez l'événement 'HonorlockElements' pour initialiser HonorlockElements
   useEffect(() => {
-    setIsClient(true);
+    const initHonorlock = () => {
+      if (window.HonorlockElements) {
+        window.HonorlockElements.init({
+          token,
+          debug: true,
+          context: {
+            type: contextType,
+            id: contextId,
+          },
+        });
+        console.log('Honorlock initialisé');
+      }
+    };
 
-    if (isClient && token && contextType && contextId) {
-      import('@honorlock/elements')
-        .then(() => {
-          document.addEventListener('HonorlockElements', () => {
-            if (window.HonorlockElements) {
-              window.HonorlockElements.init({
-                token,
-                debug: true,
-                context: {
-                  type: contextType,
-                  id: contextId,
-                },
-              });
-              console.log('Honorlock initialisé');
-            }
-          });
-        })
-        .catch((err) => console.error('Erreur lors du chargement de @honorlock/elements:', err));
-    }
-  }, [isClient, token, contextType, contextId]);
+    document.addEventListener('HonorlockElements', initHonorlock);
 
-  const handleInitClick = () => {
-    if (window.HonorlockElements && token && contextType && contextId) {
-      window.HonorlockElements.init({
-        token,
-        debug: true,
-        context: {
-          type: contextType,
-          id: contextId,
-        },
-      });
-      console.log('Honorlock initialisé manuellement');
-    }
-  };
-
-  if (!isClient) {
-    return null; // Ne rien rendre lors du rendu côté serveur
-  }
+    // Nettoyez l'événement lorsque le composant est démonté
+    return () => {
+      document.removeEventListener('HonorlockElements', initHonorlock);
+    };
+  }, [token, contextType, contextId]);
 
   return (
     <div>
@@ -76,8 +57,7 @@ const HonorlockComponent: React.FC = () => {
         value={contextId}
         onChange={(e) => setContextId(e.target.value)}
       />
-      <button onClick={handleInitClick}>Initialiser Honorlock</button>
-      <honorlock-elements></honorlock-elements>
+      <honorlock-elements style={{ width: '100%', height: '500px' }}></honorlock-elements>
     </div>
   );
 };
