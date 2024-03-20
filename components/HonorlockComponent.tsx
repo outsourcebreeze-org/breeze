@@ -16,6 +16,7 @@ const HonorlockComponent: React.FC = () => {
       // Charge dynamiquement @honorlock/elements
       import('@honorlock/elements').then(() => {
         // Initialisation de Honorlock
+         console.log('Honorlock initialisé');
         document.addEventListener('HonorlockElements', () => {
          // if (window.HonorlockElements) {
             window.HonorlockElements.init({
@@ -30,7 +31,10 @@ const HonorlockComponent: React.FC = () => {
          // }
         
         }
+          
         );
+
+         console.log('Honorlock initialisé');
       }).catch(err => console.error("Erreur lors du chargement de @honorlock/elements:", err));
    // }
   }, []);
