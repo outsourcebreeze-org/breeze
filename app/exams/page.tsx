@@ -23,7 +23,6 @@ export default async function Index() {
 
   return (
     <div>
-      <h1>Page de Test Honorlock</h1>
       <HonorlockComponent />
     </div>
   );
